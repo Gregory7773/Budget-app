@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Budget app</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="budget,count,loss,income,home">
+	<meta name="description" content="Count your monthly budget">
+	<link rel="stylesheet" href="css/index.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600"
+	 rel="stylesheet" type="text/css">
+	 <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+	  rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="top">
+		<div class="budget">
+			<div class="title">Available Budget in Month:</div>
+			<div class="budget-value"></div>
+			<div class="income">
+				<div class="income-title">INCOME</div>
+				<div class="income-right">
+					<div class="income-value"></div>
+				</div>
+			</div>
+			<div class="expenses">
+				<div class="expenses-title">EXPENSES</div>
+				<div class="expenses-right">
+					<div class="expenses-value"></div>
+					<div class="expenses-percentage"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class = "bottom">
+		<div class="calculate">
+			<select name = "mark" class = "mark">
+				<option value = "exp">-</option>
+				<option value = "inc">+</option>
+			</select>
+			<input type="text" class = "description" placeholder="Add description" >
+			<input type ="number" class = "money-value" placeholder ="Value">
+			<button class="button"><i class="ion-ios-checkmark-outline"></i></button>
+		</div>
+		<div class = "display">
+				<div class="display-income">
+					<h2>INCOME</h2>
+				</div>
+				<div class="display-expenses">
+					<h2>EXPENSES</h2>
+				</div>
+		</div>
+	</div>
+	<script src="javascript/BudgetJs.js"></script>
+</body>
+</html>

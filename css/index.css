@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: Open Sans;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  height: 100vh; }
+
+.top {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("images/back.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 40vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .top .budget {
+    width: 350px;
+    display: flex;
+    align-items: center;
+    flex-direction: column; }
+    .top .budget .title {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 10px; }
+    .top .budget .budget-value {
+      margin-bottom: 25px;
+      font-size: 46px;
+      letter-spacing: 2px;
+      color: #fff; }
+    .top .budget .income, .top .budget .expenses {
+      padding: 12px;
+      margin-bottom: 10px;
+      background-color: #28b9b5;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 350px; }
+      .top .budget .income .income-title, .top .budget .income .expenses-title, .top .budget .expenses .income-title, .top .budget .expenses .expenses-title {
+        color: #444;
+        font-size: 13px; }
+      .top .budget .income .income-right, .top .budget .expenses .income-right {
+        margin-right: 40px; }
+      .top .budget .income .income-right, .top .budget .income .expenses-right, .top .budget .expenses .income-right, .top .budget .expenses .expenses-right {
+        display: flex;
+        justify-content: center; }
+        .top .budget .income .income-right .income-value, .top .budget .income .income-right .expenses-value, .top .budget .income .expenses-right .income-value, .top .budget .income .expenses-right .expenses-value, .top .budget .expenses .income-right .income-value, .top .budget .expenses .income-right .expenses-value, .top .budget .expenses .expenses-right .income-value, .top .budget .expenses .expenses-right .expenses-value {
+          letter-spacing: 1px;
+          color: #fff; }
+        .top .budget .income .income-right .expenses-percentage, .top .budget .income .expenses-right .expenses-percentage, .top .budget .expenses .income-right .expenses-percentage, .top .budget .expenses .expenses-right .expenses-percentage {
+          margin-left: 10px;
+          padding: 3px 10px;
+          text-align: center;
+          font-size: 11px;
+          color: #f7f7f7;
+          font-weight: 700;
+          background-color: rgba(255, 255, 255, 0.2);
+          border-radius: 5px; }
+    .top .budget .expenses {
+      background-color: #ff5049; }
+
+.bottom {
+  width: 100%;
+  height: 15vh; }
+  .bottom .calculate {
+    height: 50%;
+    padding: 15px;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #e7e7e7; }
+    .bottom .calculate select {
+      height: 100%;
+      margin-right: 10px;
+      border: 1px solid #e7e7e7;
+      border-radius: 5px;
+      width: 60px;
+      outline: none;
+      transition: border-color 300ms; }
+      .bottom .calculate select:focus {
+        border-color: #28b9b5; }
+    .bottom .calculate input {
+      height: 100%;
+      margin-right: 10px;
+      border: 1px solid #e7e7e7;
+      border-radius: 5px;
+      padding: 0 0 0 10px;
+      transition: border-color 300ms;
+      outline: none; }
+      .bottom .calculate input:focus {
+        border-color: #28B9B5; }
+    .bottom .calculate input:nth-of-type(1) {
+      width: 400px; }
+    .bottom .calculate button {
+      padding: 0;
+      border: none;
+      background: none;
+      color: #28B9B5;
+      font-size: 32px;
+      cursor: pointer;
+      outline: none; }
+      .bottom .calculate button:active {
+        transform: translateY(2px); }
+  .bottom .display {
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+    .bottom .display .display-income {
+      margin-right: 40px; }
+      .bottom .display .display-income h2 {
+        color: #28b9b5; }
+    .bottom .display .display-expenses h2 {
+      color: #ff5049; }
+    .bottom .display .display-income, .bottom .display .display-expenses {
+      width: 475px;
+      display: inline-block; }
+      .bottom .display .display-income h2, .bottom .display .display-expenses h2 {
+        font-size: 18px;
+        font-weight: 400; }
+      .bottom .display .display-income .item, .bottom .display .display-expenses .item {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #e7e7ee; }
+        .bottom .display .display-income .item:hover .item_right_side .delete_item, .bottom .display .display-expenses .item:hover .item_right_side .delete_item {
+          display: block; }
+        .bottom .display .display-income .item:hover .item_right_side .item_value, .bottom .display .display-income .item:hover .item_right_side .percentage, .bottom .display .display-expenses .item:hover .item_right_side .item_value, .bottom .display .display-expenses .item:hover .item_right_side .percentage {
+          transform: translateX(-20px); }
+        .bottom .display .display-income .item .item_description, .bottom .display .display-expenses .item .item_description {
+          margin: 16px 0 16px 10px; }
+        .bottom .display .display-income .item .item_right_side, .bottom .display .display-expenses .item .item_right_side {
+          margin: 16px 0 16px 0;
+          display: flex;
+          flex-direction: row; }
+          .bottom .display .display-income .item .item_right_side .item_value, .bottom .display .display-expenses .item .item_right_side .item_value {
+            color: #ff5049;
+            font-weight: 700;
+            margin-right: 10px;
+            transition: transform 300ms; }
+          .bottom .display .display-income .item .item_right_side #income_value, .bottom .display .display-expenses .item .item_right_side #income_value {
+            color: #28b9b5; }
+          .bottom .display .display-income .item .item_right_side .percentage, .bottom .display .display-expenses .item .item_right_side .percentage {
+            padding: 0 12px;
+            background-color: #ffe1e0;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            transition: transform 300ms; }
+            .bottom .display .display-income .item .item_right_side .percentage .percentage_value, .bottom .display .display-expenses .item .item_right_side .percentage .percentage_value {
+              color: #ff5049;
+              font-size: 12px;
+              font-weight: 700; }
+          .bottom .display .display-income .item .item_right_side .delete_item, .bottom .display .display-expenses .item .item_right_side .delete_item {
+            display: none;
+            margin-right: 10px; }
+            .bottom .display .display-income .item .item_right_side .delete_item button, .bottom .display .display-expenses .item .item_right_side .delete_item button {
+              border: none;
+              background-color: #fff;
+              cursor: pointer;
+              outline: none;
+              padding: 0; }
+              .bottom .display .display-income .item .item_right_side .delete_item button i, .bottom .display .display-expenses .item .item_right_side .delete_item button i {
+                color: #ff5049;
+                font-size: 19px; }
+              .bottom .display .display-income .item .item_right_side .delete_item button #income_button, .bottom .display .display-expenses .item .item_right_side .delete_item button #income_button {
+                color: #28b9b5; }
+
+/*# sourceMappingURL=index.css.map */
