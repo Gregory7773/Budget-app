@@ -13,7 +13,8 @@ var UIController = (function(){
     incValue: ".income-value",
     expPercentageAll: ".expenses-percentage",
     deleteItem:".display",
-    itemPercentageValue:".percentage_value"
+    itemPercentageValue:".percentage_value",
+    title:".title"
   };
   var valueFormatting =  function(num,value){
       var int, decimal,number;
@@ -31,6 +32,16 @@ var UIController = (function(){
       return number;
   };
     return{
+    changeInputColor: function(){
+
+          var fields,fieldsArr;
+          fields = document.querySelectorAll(DOMStrings.mark+","+DOMStrings.description+","+DOMStrings.money);
+          fieldsArr = Array.prototype.slice.call(fields);
+          fieldsArr.forEach(function(element,index,array){
+            element.classList.toggle("red-border");
+          });
+          document.querySelector(DOMStrings.button).classList.toggle("red-button");
+      },
     getInput: function(){
       return{
       getMark: document.querySelector(DOMStrings.mark).value,
@@ -96,6 +107,13 @@ var UIController = (function(){
       expItemsArray.forEach(function(elem){
           elem.innerHTML = percentagesArray[expItemsArray.indexOf(elem)];
         });
+    },
+    updateMonth: function(){
+      var dateObj, title;
+      var Months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      dateObj = new Date();
+      title = document.querySelector(DOMStrings.title);
+      title.innerHTML = "Budget in " + Months[dateObj.getMonth()]+" is:";
     }
   };
 })();
@@ -218,6 +236,7 @@ var controller = (function(uictrl,budctrl){
       }
     });
     document.querySelector(DOMStrings.deleteItem).addEventListener("click",function(){deleteItem(event);});
+    document.querySelector(DOMStrings.mark).addEventListener("change",uictrl.changeInputColor);
   };
 
   var updateBudget = function(mark){
@@ -267,6 +286,7 @@ var controller = (function(uictrl,budctrl){
         percentage: "---"
       };
       uictrl.updateUIbudget(budget);
+      uictrl.updateMonth();
     }
   };
 
